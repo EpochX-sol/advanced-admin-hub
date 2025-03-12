@@ -7,6 +7,7 @@ import {
   Files,
   Mail,
 } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
@@ -28,6 +29,8 @@ const menuItems = [
 ];
 
 export default function DashboardSidebar() {
+  const location = useLocation();
+  
   return (
     <Sidebar>
       <SidebarContent>
@@ -40,10 +43,15 @@ export default function DashboardSidebar() {
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.label}>
                   <SidebarMenuButton asChild>
-                    <a href={item.href} className="flex items-center gap-3">
+                    <Link 
+                      to={item.href} 
+                      className="flex items-center gap-3"
+                      aria-current={location.pathname === item.href ? "page" : undefined}
+                      data-active={location.pathname === item.href}
+                    >
                       <item.icon className="h-5 w-5" />
                       <span>{item.label}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
