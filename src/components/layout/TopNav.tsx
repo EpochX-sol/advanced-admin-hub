@@ -114,14 +114,7 @@ export default function TopNav() {
             <Input placeholder="Search..." className="pl-8" />
           </div>
           <div className="ml-auto flex items-center gap-4">
-            {/* Theme Toggle */}
-            <Button variant="ghost" size="icon" onClick={toggleTheme}>
-              {theme === "dark" ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
+      
 
             {/* Notifications */}
             <Popover>
